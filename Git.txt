@@ -1,0 +1,7 @@
+Git is a Version Controll System like Tool
+
+git --version 
+Git Hub --> is a Platform there all work done as a git also Give Inrerface. create, store, manage, and share their code
+GitLab--> Mange Coding 
+Bitbucket
+SCM --> Above all are as a Sourece Code Managment

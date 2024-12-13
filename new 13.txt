@@ -1,0 +1,117 @@
+Unix OS  --> Mac SYstem IOS -->Paid
+Linux OS --> Other OS --> Free
+
+Window+V 
+hostnamectl --> Check Information 
+cat /etc/os-release
+
+How to run Linux on Windows:-
+1 WSL  2 Virtual Box 3 Cloud -Aws,Azure,GCP,VM 4 Vagrant
+
+Linux System Arcitacture:-
+Appication -->Shell-->Kernal-->Hardware
+
+top --> Check Utilization
+echo "hello" > test.txt  
+head test.txt > show 5 lines from upper in file  -n 4 Upper 4 lines
+tail test.txt > show 5 lines from down side in file
+tail -f > Realtime Changes show in file    -n 2 last 2 lines
+less > small Page by page show in file
+more > Page by page show in file
+wc   > Show Lines, Charecters and size of File  --> wc rahul.txt test.txt abc.txt
+ln -s > Create Soft Link >> ln -s /home/rahul/TesDir/rahul.txt softlink.txt If Original file remove Softlink also deleted
+sort --> Sort Word in File >> sort rahul.txt
+tee  --> Print output on Terminal and create File --> echo ''Hello" | tee rahul.txt
+diff --> Show Diffrence between Files --> diff rahul.txt Test.txt
+nohup --> Create Log file --> nohup df -h , nohup free -h
+who --> Check Howmany users login in system
+whoami --> Check Which user currently login
+which --> Check Location for Software and Command --> which cp  or which java
+id --> Check Uid for Users and group -->id
+apt --> Install Packeges --> sudo apt -get install docker.io
+apt remove -->Remove Packege --> sudo apt remove docker.io (yum -CentOS, dnf- Fedora, Pacman- Arch Linux, Portage chromebook, rpm- Redhat
+
+useradd -m Rahul -->Add user with home Directory
+userdel --> Delete User
+groupadd Devops--> Create Group
+cat /etc/passwd --> check users 
+cat /etc/group --> Check Groups
+sudo gpasswd -a user(rahul) group(DevOps) --> Add user in Group
+sudo gpasswd -M user1,user2 Tester --> Add Multiple users in Group with -M
+groupdel Tester --> Delete Group
+chmod - Change Permission --> Read :4 ,Write :2 , Execute :1 , nothing :0
+umask --> Check Default Permission for users, Group,and Others --> cat .bashrc --> if need to change default permission in file 
+chwon --> Change Ownership to File and Directory -->sudo chown User Filename
+chgrp --> Change Group to File and Directory --> sudo chgrp devops(group) Filename  --> ls -l
+
+zip --> Create Compress --> zip -r Newname(file) filename(Original FileName) 
+unzip --> Decompress --> unzip filename.zip
+tar -cvzf --> Create Compress --> tar -cvzf New.tar.gz cloud(Directory)
+tar -xvzf --> Extract --> tar -xvzf cloud.tar.gz 
+
+scp --> Securly Copy Data --> scp -i "d:/rahul.pem" -r DevopsData rahul@192.168.1.X:/home/user
+scp -i "d:/rahul.pem" -r rahul@192.168.1.X:/home/user/DevopsData . --> Copy Data from Server to Local system Current Directory
+rsync --> Syncronize Directory and Files --> rsync -e "ssh -i d:/rahul.pem" -avz DevopsData ubuntu@192.168.1.X:/home/ubuntu/DataDirectory
+
+netstat or ss  --> Check Active Connections and Protocol on Server
+tracerout --> check Route source to Destination --> traceroute youtube.com
+tracepath -->  same as above coomand --> tracepath google.com
+mtr --> Ping and Trace both run in Mix (My Trace Route)  --> mtr google.com
+nslookup --> check IP on Domain --> nslookup www.youtube.com
+telnet --> Check Port --> telnet youtube.com 80
+hostname --> Check computer name   /etc/hosts --> configure host file
+iwconfig --> Check Wireless Connection on server
+dig --> Check all information of domain --> dig youtube.com
+whois --> Full Information of domain --> whois youtube.com
+arp --> Check Mac Address   --> arp -a 
+
+curl --> Get Data from endpoint als check website --> curl -X GET https://dummy.restapiexample.com/ | jq (need to install JQ Plugin for proper view)
+wget --> Download from Internet --> wget https://xyz.com(Webaddress)
+iptables --> Check IP Routes --> sudo iptables --list-rules
+watch --> Every 2 sec run command and show results --> watch mtr youtube.com
+nmap --> Scan Website status and Port -->nmap -v google.com
+route --> show Route Tables 
+
+awk --> Show lines and Numbers in big log files (Programing Lg access cmd) --> awk '/INFO/ {count++}' app.log  or awk 'EVENTS/ {count++} END {print count}' app.log
+sed --> It is primarily used to filter and modify text files --> sed 's/INFO/LOG/g' app.log --> Change info to log in File 
+grep --> Regular Pettern or Expression Find --> grep -i INFO app.log , grep -i -c info app.log (Show numbers with -c) --> ps aux | grep rahul(user)
+
+lsblk --> Check howmany disk attached --> this is a Volumes, Disks or Blocks
+df -h --> Check Free space
+lvm --> (Logical Volume Manager)
+pvs --> Check Partitions or check Physical Volumes on Instance
+pvcreate --> physical volume create --> lvm> pvcreate /dev/xvdf /dev/vvdg /dev/xvdh 
+
+vgcreate --> Volume Group Create --> vgcreate tws_vg(VolumeGroupName) /dev/xvdf /dev/xvdg
+vgs --> Check Volume Group Size 
+lvcreate --> Logical Volume Create --> lvcreate -L 10G -n tws_lv tws_vg   (lvcreate--LogicalVolumeCreate, -L--Size, -n--Name, tws_vg--NameOfVolumeGroup
+pvdisplay --> Show Full information of Phisycal Volume
+vgdisplay --> show volume group Full Informataion
+lvdisplay --> Show Logical Volume Full Information
+
+Mount Voulumes:-
+mkdir /mnt/tws_lv_mount --> Create Directory for Mount Volume
+mkfs.ext4 /dev/tws_vg/tws_lv --> Formate -->Create File System from Volume Group to Logical Volume
+mount /dev/tws_vg/tws_lv /mnt/tws_lv_mount --> Mount Logical volume in Directory
+umount --> UnMount -->umount /mnt/tws_lv_mount
+
+Attach Disk without Group --> EBS Volume Attach in Ec2:-
+mkdir /mnt/tws_disk_mount -->Create Directory where Mount
+mkfs -t ext4 /dev/xvdh
+mount /dev/xvdh /mnt/tws_disk_mount
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
